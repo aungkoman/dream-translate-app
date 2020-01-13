@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Dream Translator</title>
+    <title>အိမ်မက် အဘိဓာန်</title>
+    
+  <!-- CODELAB: Add link rel manifest -->
+  <link rel="manifest" href="manifest.json">
+  <!-- CODELAB: Add iOS meta tags and icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Weather PWA">
+  <link rel="apple-touch-icon" href="images/icon-152x152.png">
+  <!-- CODELAB: Add description here -->
+  <meta name="description" content="အိမ်မက် အဘိဓာန်">
+  <!-- CODELAB: Add meta theme-color -->
+  <meta name="theme-color" content="#2F3BA2" />
+
+
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.ios.min.css">
   <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
@@ -14,6 +28,7 @@
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- // src: url("file:///android_asset/fonts/zawgyi.ttf") -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <style type="text/css">
 @font-face {
     font-family: Unicode;
@@ -37,6 +52,9 @@ body {
     <div class="panel panel-left panel-reveal">
       <div class="content-block">
         <p>အိမ်မက် အဘိဓာန်</p>
+        
+        <button id="butInstall" aria-label="Install" hidden></button>
+
 		    <p>Brought to you by <a href="https://facebook.com/mmsoftware100" class="external"><span class="color-blue">TEAM CS</span></a></P>
       </div>
     </div>
@@ -159,11 +177,26 @@ body {
  </div>
 </script> 
 
+</script>
 
+  <script src="js/luxon-1.11.4.js"></script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
-    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/my-app.js">
+  <!-- CODELAB: Add the install script here -->
+<script src="js/install.js"></script>
+  <script>
+    // CODELAB: Register service worker.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+  });
+}
+  </script>
 
   </body>
 </html>
